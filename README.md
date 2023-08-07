@@ -1,1 +1,0 @@
-# INHA_Multi-modal_challenge
