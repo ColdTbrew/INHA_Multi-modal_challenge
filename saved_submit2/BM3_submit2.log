@@ -1,0 +1,997 @@
+Sun 06 Aug 2023 21:01:22 INFO ██Server: 	jupyter-485--256
+Sun 06 Aug 2023 21:01:22 INFO ██Dir: 	/home/jovyan/work/MMRec/src
+
+Sun 06 Aug 2023 21:01:22 INFO 
+gpu_id=2
+use_gpu=True
+seed=[999]
+data_path=../data/
+inter_splitting_label=x_label
+filter_out_cod_start_users=True
+is_multimodal_model=True
+checkpoint_dir=saved_ori
+save_recommended_topk=True
+recommend_topk=recommend_topk/
+embedding_size=64
+weight_decay=0.0
+req_training=True
+epochs=1000
+stopping_step=20
+train_batch_size=2048
+learner=adam
+learning_rate=0.001
+learning_rate_scheduler=[1.0, 50]
+eval_step=1
+training_neg_sample_num=1
+use_neg_sampling=False
+use_full_sampling=False
+NEG_PREFIX=neg__
+USER_ID_FIELD=user_id
+ITEM_ID_FIELD=item_id
+field_separator=	
+metrics=['NDCG']
+topk=[50]
+valid_metric=NDCG@50
+eval_batch_size=4096
+use_raw_features=False
+max_txt_len=32
+max_img_size=256
+vocab_size=30522
+type_vocab_size=2
+hidden_size=4
+pad_token_id=0
+max_position_embeddings=512
+layer_norm_eps=1e-12
+hidden_dropout_prob=0.1
+end2end=False
+hyper_parameters=['n_layers', 'reg_weight', 'dropout', 'seed']
+RATING_FIELD=rating
+inter_file_name=orignal_train.inter
+vision_feature_file=image.npy
+text_feature_file=text.npy
+feat_embed_dim=64
+n_layers=[1]
+dropout=[0.3]
+reg_weight=[0.1]
+cl_weight=2.0
+model=BM3
+dataset=dacon
+valid_metric_bigger=True
+device=cuda
+
+
+Sun 06 Aug 2023 21:01:22 INFO dacon
+The number of users: 192403
+Average actions of users: 6.519861956414401
+The number of items: 62989
+Average actions of items: 19.91523916874375
+The number of inters: 1254441
+The sparsity of the dataset: 99.98964920548602%
+Sun 06 Aug 2023 21:01:22 INFO 
+====Training====
+dacon
+The number of users: 192403
+Average actions of users: 4.356174280026819
+The number of items: 62510
+Average actions of items: 13.408110702287633
+The number of inters: 838141
+The sparsity of the dataset: 99.99303123615417%
+Sun 06 Aug 2023 21:01:23 INFO 
+====Validation====
+dacon
+The number of users: 192403
+Average actions of users: 1.0614907251965926
+The number of items: 47208
+Average actions of items: 4.326258261311642
+The number of inters: 204234
+The sparsity of the dataset: 99.9977514600805%
+Sun 06 Aug 2023 21:01:23 INFO 
+====Testing====
+dacon
+The number of users: 192403
+Average actions of users: 1.1021969511909897
+The number of items: 47861
+Average actions of items: 4.430872735630262
+The number of inters: 212066
+The sparsity of the dataset: 99.99769708750091%
+Sun 06 Aug 2023 21:02:10 INFO 
+
+=================================
+
+
+Sun 06 Aug 2023 21:02:10 INFO =========1/1: Parameters:['n_layers', 'reg_weight', 'dropout', 'seed']=(1, 0.1, 0.3, 999)=======
+Sun 06 Aug 2023 21:02:13 INFO BM3(
+  (user_embedding): Embedding(192403, 64)
+  (item_id_embedding): Embedding(63001, 64)
+  (predictor): Linear(in_features=64, out_features=64, bias=True)
+  (reg_loss): EmbLoss()
+  (image_embedding): Embedding(63001, 4096)
+  (image_trs): Linear(in_features=4096, out_features=64, bias=True)
+  (text_embedding): Embedding(63001, 384)
+  (text_trs): Linear(in_features=384, out_features=64, bias=True)
+)
+Trainable parameters: 298881344
+Sun 06 Aug 2023 21:02:41 INFO epoch 0 training [time: 27.84s, train loss: 1766.8214]
+Sun 06 Aug 2023 21:04:06 INFO epoch 0 evaluating [time: 42.50s, valid_score: 0.017600]
+Sun 06 Aug 2023 21:04:06 INFO valid result: 
+ndcg@50: 0.0176    
+Sun 06 Aug 2023 21:04:06 INFO test result: 
+ndcg@50: 0.0178    
+Sun 06 Aug 2023 21:04:06 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:04:33 INFO epoch 1 training [time: 26.97s, train loss: 1358.8809]
+Sun 06 Aug 2023 21:05:58 INFO epoch 1 evaluating [time: 42.30s, valid_score: 0.018900]
+Sun 06 Aug 2023 21:05:58 INFO valid result: 
+ndcg@50: 0.0189    
+Sun 06 Aug 2023 21:05:58 INFO test result: 
+ndcg@50: 0.0193    
+Sun 06 Aug 2023 21:05:58 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:06:25 INFO epoch 2 training [time: 26.90s, train loss: 1223.9033]
+Sun 06 Aug 2023 21:07:50 INFO epoch 2 evaluating [time: 42.27s, valid_score: 0.019700]
+Sun 06 Aug 2023 21:07:50 INFO valid result: 
+ndcg@50: 0.0197    
+Sun 06 Aug 2023 21:07:50 INFO test result: 
+ndcg@50: 0.0202    
+Sun 06 Aug 2023 21:07:50 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:08:17 INFO epoch 3 training [time: 26.89s, train loss: 1174.8247]
+Sun 06 Aug 2023 21:09:44 INFO epoch 3 evaluating [time: 43.20s, valid_score: 0.020400]
+Sun 06 Aug 2023 21:09:44 INFO valid result: 
+ndcg@50: 0.0204    
+Sun 06 Aug 2023 21:09:44 INFO test result: 
+ndcg@50: 0.0208    
+Sun 06 Aug 2023 21:09:44 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:10:11 INFO epoch 4 training [time: 26.91s, train loss: 1113.3346]
+Sun 06 Aug 2023 21:11:38 INFO epoch 4 evaluating [time: 43.16s, valid_score: 0.020900]
+Sun 06 Aug 2023 21:11:38 INFO valid result: 
+ndcg@50: 0.0209    
+Sun 06 Aug 2023 21:11:38 INFO test result: 
+ndcg@50: 0.0214    
+Sun 06 Aug 2023 21:11:38 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:12:04 INFO epoch 5 training [time: 26.82s, train loss: 1083.1698]
+Sun 06 Aug 2023 21:13:31 INFO epoch 5 evaluating [time: 43.38s, valid_score: 0.021200]
+Sun 06 Aug 2023 21:13:31 INFO valid result: 
+ndcg@50: 0.0212    
+Sun 06 Aug 2023 21:13:31 INFO test result: 
+ndcg@50: 0.0218    
+Sun 06 Aug 2023 21:13:31 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:13:58 INFO epoch 6 training [time: 26.93s, train loss: 1068.0392]
+Sun 06 Aug 2023 21:15:24 INFO epoch 6 evaluating [time: 42.16s, valid_score: 0.021600]
+Sun 06 Aug 2023 21:15:24 INFO valid result: 
+ndcg@50: 0.0216    
+Sun 06 Aug 2023 21:15:24 INFO test result: 
+ndcg@50: 0.0221    
+Sun 06 Aug 2023 21:15:24 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:15:51 INFO epoch 7 training [time: 26.95s, train loss: 1091.3986]
+Sun 06 Aug 2023 21:17:16 INFO epoch 7 evaluating [time: 42.88s, valid_score: 0.021800]
+Sun 06 Aug 2023 21:17:16 INFO valid result: 
+ndcg@50: 0.0218    
+Sun 06 Aug 2023 21:17:16 INFO test result: 
+ndcg@50: 0.0224    
+Sun 06 Aug 2023 21:17:16 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:17:43 INFO epoch 8 training [time: 26.97s, train loss: 1057.5234]
+Sun 06 Aug 2023 21:19:09 INFO epoch 8 evaluating [time: 42.71s, valid_score: 0.022100]
+Sun 06 Aug 2023 21:19:09 INFO valid result: 
+ndcg@50: 0.0221    
+Sun 06 Aug 2023 21:19:09 INFO test result: 
+ndcg@50: 0.0227    
+Sun 06 Aug 2023 21:19:09 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:19:36 INFO epoch 9 training [time: 26.94s, train loss: 1046.0222]
+Sun 06 Aug 2023 21:21:02 INFO epoch 9 evaluating [time: 43.28s, valid_score: 0.022400]
+Sun 06 Aug 2023 21:21:02 INFO valid result: 
+ndcg@50: 0.0224    
+Sun 06 Aug 2023 21:21:02 INFO test result: 
+ndcg@50: 0.0230    
+Sun 06 Aug 2023 21:21:02 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:21:29 INFO epoch 10 training [time: 26.97s, train loss: 1006.9001]
+Sun 06 Aug 2023 21:22:56 INFO epoch 10 evaluating [time: 43.30s, valid_score: 0.022600]
+Sun 06 Aug 2023 21:22:56 INFO valid result: 
+ndcg@50: 0.0226    
+Sun 06 Aug 2023 21:22:56 INFO test result: 
+ndcg@50: 0.0232    
+Sun 06 Aug 2023 21:22:56 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:23:23 INFO epoch 11 training [time: 26.94s, train loss: 995.5996]
+Sun 06 Aug 2023 21:24:49 INFO epoch 11 evaluating [time: 42.60s, valid_score: 0.022800]
+Sun 06 Aug 2023 21:24:49 INFO valid result: 
+ndcg@50: 0.0228    
+Sun 06 Aug 2023 21:24:49 INFO test result: 
+ndcg@50: 0.0234    
+Sun 06 Aug 2023 21:24:49 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:25:16 INFO epoch 12 training [time: 26.91s, train loss: 1018.7639]
+Sun 06 Aug 2023 21:26:41 INFO epoch 12 evaluating [time: 42.83s, valid_score: 0.022900]
+Sun 06 Aug 2023 21:26:41 INFO valid result: 
+ndcg@50: 0.0229    
+Sun 06 Aug 2023 21:26:41 INFO test result: 
+ndcg@50: 0.0236    
+Sun 06 Aug 2023 21:26:41 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:27:08 INFO epoch 13 training [time: 26.91s, train loss: 963.0400]
+Sun 06 Aug 2023 21:28:34 INFO epoch 13 evaluating [time: 42.98s, valid_score: 0.023100]
+Sun 06 Aug 2023 21:28:34 INFO valid result: 
+ndcg@50: 0.0231    
+Sun 06 Aug 2023 21:28:34 INFO test result: 
+ndcg@50: 0.0238    
+Sun 06 Aug 2023 21:28:34 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:29:01 INFO epoch 14 training [time: 26.53s, train loss: 954.4293]
+Sun 06 Aug 2023 21:30:26 INFO epoch 14 evaluating [time: 43.28s, valid_score: 0.023300]
+Sun 06 Aug 2023 21:30:26 INFO valid result: 
+ndcg@50: 0.0233    
+Sun 06 Aug 2023 21:30:26 INFO test result: 
+ndcg@50: 0.0240    
+Sun 06 Aug 2023 21:30:26 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:30:53 INFO epoch 15 training [time: 26.92s, train loss: 949.5171]
+Sun 06 Aug 2023 21:32:18 INFO epoch 15 evaluating [time: 42.81s, valid_score: 0.023500]
+Sun 06 Aug 2023 21:32:18 INFO valid result: 
+ndcg@50: 0.0235    
+Sun 06 Aug 2023 21:32:18 INFO test result: 
+ndcg@50: 0.0242    
+Sun 06 Aug 2023 21:32:18 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:32:45 INFO epoch 16 training [time: 26.93s, train loss: 945.7216]
+Sun 06 Aug 2023 21:34:10 INFO epoch 16 evaluating [time: 42.22s, valid_score: 0.023600]
+Sun 06 Aug 2023 21:34:10 INFO valid result: 
+ndcg@50: 0.0236    
+Sun 06 Aug 2023 21:34:10 INFO test result: 
+ndcg@50: 0.0243    
+Sun 06 Aug 2023 21:34:10 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:34:37 INFO epoch 17 training [time: 26.86s, train loss: 943.1344]
+Sun 06 Aug 2023 21:36:02 INFO epoch 17 evaluating [time: 42.44s, valid_score: 0.023900]
+Sun 06 Aug 2023 21:36:02 INFO valid result: 
+ndcg@50: 0.0239    
+Sun 06 Aug 2023 21:36:02 INFO test result: 
+ndcg@50: 0.0245    
+Sun 06 Aug 2023 21:36:02 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:36:29 INFO epoch 18 training [time: 26.88s, train loss: 941.8341]
+Sun 06 Aug 2023 21:37:55 INFO epoch 18 evaluating [time: 43.24s, valid_score: 0.024000]
+Sun 06 Aug 2023 21:37:55 INFO valid result: 
+ndcg@50: 0.0240    
+Sun 06 Aug 2023 21:37:55 INFO test result: 
+ndcg@50: 0.0246    
+Sun 06 Aug 2023 21:37:55 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:38:22 INFO epoch 19 training [time: 27.01s, train loss: 940.4358]
+Sun 06 Aug 2023 21:39:48 INFO epoch 19 evaluating [time: 42.49s, valid_score: 0.024100]
+Sun 06 Aug 2023 21:39:48 INFO valid result: 
+ndcg@50: 0.0241    
+Sun 06 Aug 2023 21:39:48 INFO test result: 
+ndcg@50: 0.0248    
+Sun 06 Aug 2023 21:39:48 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:40:15 INFO epoch 20 training [time: 27.00s, train loss: 939.0341]
+Sun 06 Aug 2023 21:41:39 INFO epoch 20 evaluating [time: 42.68s, valid_score: 0.024200]
+Sun 06 Aug 2023 21:41:39 INFO valid result: 
+ndcg@50: 0.0242    
+Sun 06 Aug 2023 21:41:39 INFO test result: 
+ndcg@50: 0.0250    
+Sun 06 Aug 2023 21:41:39 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:42:06 INFO epoch 21 training [time: 26.87s, train loss: 938.5166]
+Sun 06 Aug 2023 21:43:33 INFO epoch 21 evaluating [time: 43.67s, valid_score: 0.024400]
+Sun 06 Aug 2023 21:43:33 INFO valid result: 
+ndcg@50: 0.0244    
+Sun 06 Aug 2023 21:43:33 INFO test result: 
+ndcg@50: 0.0251    
+Sun 06 Aug 2023 21:43:33 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:44:00 INFO epoch 22 training [time: 26.92s, train loss: 937.4730]
+Sun 06 Aug 2023 21:45:26 INFO epoch 22 evaluating [time: 42.93s, valid_score: 0.024500]
+Sun 06 Aug 2023 21:45:26 INFO valid result: 
+ndcg@50: 0.0245    
+Sun 06 Aug 2023 21:45:26 INFO test result: 
+ndcg@50: 0.0252    
+Sun 06 Aug 2023 21:45:26 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:45:53 INFO epoch 23 training [time: 26.97s, train loss: 936.6364]
+Sun 06 Aug 2023 21:47:18 INFO epoch 23 evaluating [time: 42.12s, valid_score: 0.024600]
+Sun 06 Aug 2023 21:47:18 INFO valid result: 
+ndcg@50: 0.0246    
+Sun 06 Aug 2023 21:47:18 INFO test result: 
+ndcg@50: 0.0253    
+Sun 06 Aug 2023 21:47:18 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:47:45 INFO epoch 24 training [time: 26.92s, train loss: 935.8835]
+Sun 06 Aug 2023 21:49:10 INFO epoch 24 evaluating [time: 42.85s, valid_score: 0.024800]
+Sun 06 Aug 2023 21:49:10 INFO valid result: 
+ndcg@50: 0.0248    
+Sun 06 Aug 2023 21:49:10 INFO test result: 
+ndcg@50: 0.0254    
+Sun 06 Aug 2023 21:49:10 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:49:37 INFO epoch 25 training [time: 26.88s, train loss: 935.3343]
+Sun 06 Aug 2023 21:51:02 INFO epoch 25 evaluating [time: 43.11s, valid_score: 0.024900]
+Sun 06 Aug 2023 21:51:02 INFO valid result: 
+ndcg@50: 0.0249    
+Sun 06 Aug 2023 21:51:02 INFO test result: 
+ndcg@50: 0.0255    
+Sun 06 Aug 2023 21:51:02 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:51:29 INFO epoch 26 training [time: 26.96s, train loss: 935.2113]
+Sun 06 Aug 2023 21:52:54 INFO epoch 26 evaluating [time: 42.50s, valid_score: 0.025000]
+Sun 06 Aug 2023 21:52:54 INFO valid result: 
+ndcg@50: 0.0250    
+Sun 06 Aug 2023 21:52:54 INFO test result: 
+ndcg@50: 0.0257    
+Sun 06 Aug 2023 21:52:54 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:53:21 INFO epoch 27 training [time: 26.95s, train loss: 934.5583]
+Sun 06 Aug 2023 21:54:47 INFO epoch 27 evaluating [time: 43.16s, valid_score: 0.025000]
+Sun 06 Aug 2023 21:54:47 INFO valid result: 
+ndcg@50: 0.0250    
+Sun 06 Aug 2023 21:54:47 INFO test result: 
+ndcg@50: 0.0258    
+Sun 06 Aug 2023 21:55:14 INFO epoch 28 training [time: 27.02s, train loss: 934.0355]
+Sun 06 Aug 2023 21:56:40 INFO epoch 28 evaluating [time: 43.11s, valid_score: 0.025100]
+Sun 06 Aug 2023 21:56:40 INFO valid result: 
+ndcg@50: 0.0251    
+Sun 06 Aug 2023 21:56:40 INFO test result: 
+ndcg@50: 0.0259    
+Sun 06 Aug 2023 21:56:40 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:57:07 INFO epoch 29 training [time: 26.93s, train loss: 933.6728]
+Sun 06 Aug 2023 21:58:32 INFO epoch 29 evaluating [time: 42.20s, valid_score: 0.025200]
+Sun 06 Aug 2023 21:58:32 INFO valid result: 
+ndcg@50: 0.0252    
+Sun 06 Aug 2023 21:58:32 INFO test result: 
+ndcg@50: 0.0260    
+Sun 06 Aug 2023 21:58:32 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 21:58:59 INFO epoch 30 training [time: 27.03s, train loss: 933.2683]
+Sun 06 Aug 2023 22:00:25 INFO epoch 30 evaluating [time: 42.85s, valid_score: 0.025200]
+Sun 06 Aug 2023 22:00:25 INFO valid result: 
+ndcg@50: 0.0252    
+Sun 06 Aug 2023 22:00:25 INFO test result: 
+ndcg@50: 0.0261    
+Sun 06 Aug 2023 22:00:52 INFO epoch 31 training [time: 26.98s, train loss: 932.6319]
+Sun 06 Aug 2023 22:02:18 INFO epoch 31 evaluating [time: 43.18s, valid_score: 0.025300]
+Sun 06 Aug 2023 22:02:18 INFO valid result: 
+ndcg@50: 0.0253    
+Sun 06 Aug 2023 22:02:18 INFO test result: 
+ndcg@50: 0.0261    
+Sun 06 Aug 2023 22:02:18 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 22:02:45 INFO epoch 32 training [time: 26.98s, train loss: 932.7595]
+Sun 06 Aug 2023 22:04:11 INFO epoch 32 evaluating [time: 42.98s, valid_score: 0.025400]
+Sun 06 Aug 2023 22:04:11 INFO valid result: 
+ndcg@50: 0.0254    
+Sun 06 Aug 2023 22:04:11 INFO test result: 
+ndcg@50: 0.0262    
+Sun 06 Aug 2023 22:04:11 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 22:04:38 INFO epoch 33 training [time: 26.93s, train loss: 932.1987]
+Sun 06 Aug 2023 22:06:03 INFO epoch 33 evaluating [time: 42.13s, valid_score: 0.025400]
+Sun 06 Aug 2023 22:06:03 INFO valid result: 
+ndcg@50: 0.0254    
+Sun 06 Aug 2023 22:06:03 INFO test result: 
+ndcg@50: 0.0263    
+Sun 06 Aug 2023 22:06:30 INFO epoch 34 training [time: 26.98s, train loss: 932.0866]
+Sun 06 Aug 2023 22:07:55 INFO epoch 34 evaluating [time: 42.74s, valid_score: 0.025500]
+Sun 06 Aug 2023 22:07:55 INFO valid result: 
+ndcg@50: 0.0255    
+Sun 06 Aug 2023 22:07:55 INFO test result: 
+ndcg@50: 0.0264    
+Sun 06 Aug 2023 22:07:55 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 22:08:22 INFO epoch 35 training [time: 26.97s, train loss: 931.7033]
+Sun 06 Aug 2023 22:09:48 INFO epoch 35 evaluating [time: 42.72s, valid_score: 0.025600]
+Sun 06 Aug 2023 22:09:48 INFO valid result: 
+ndcg@50: 0.0256    
+Sun 06 Aug 2023 22:09:48 INFO test result: 
+ndcg@50: 0.0265    
+Sun 06 Aug 2023 22:09:48 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 22:10:15 INFO epoch 36 training [time: 26.95s, train loss: 931.3244]
+Sun 06 Aug 2023 22:11:40 INFO epoch 36 evaluating [time: 42.83s, valid_score: 0.025600]
+Sun 06 Aug 2023 22:11:40 INFO valid result: 
+ndcg@50: 0.0256    
+Sun 06 Aug 2023 22:11:40 INFO test result: 
+ndcg@50: 0.0266    
+Sun 06 Aug 2023 22:12:07 INFO epoch 37 training [time: 26.93s, train loss: 931.3114]
+Sun 06 Aug 2023 22:13:33 INFO epoch 37 evaluating [time: 43.06s, valid_score: 0.025700]
+Sun 06 Aug 2023 22:13:33 INFO valid result: 
+ndcg@50: 0.0257    
+Sun 06 Aug 2023 22:13:33 INFO test result: 
+ndcg@50: 0.0266    
+Sun 06 Aug 2023 22:13:33 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 22:14:00 INFO epoch 38 training [time: 27.01s, train loss: 931.2689]
+Sun 06 Aug 2023 22:15:26 INFO epoch 38 evaluating [time: 43.51s, valid_score: 0.025800]
+Sun 06 Aug 2023 22:15:26 INFO valid result: 
+ndcg@50: 0.0258    
+Sun 06 Aug 2023 22:15:26 INFO test result: 
+ndcg@50: 0.0266    
+Sun 06 Aug 2023 22:15:26 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 22:15:53 INFO epoch 39 training [time: 26.91s, train loss: 930.6093]
+Sun 06 Aug 2023 22:17:19 INFO epoch 39 evaluating [time: 42.22s, valid_score: 0.025900]
+Sun 06 Aug 2023 22:17:19 INFO valid result: 
+ndcg@50: 0.0259    
+Sun 06 Aug 2023 22:17:19 INFO test result: 
+ndcg@50: 0.0267    
+Sun 06 Aug 2023 22:17:19 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 22:17:46 INFO epoch 40 training [time: 26.91s, train loss: 930.5405]
+Sun 06 Aug 2023 22:19:10 INFO epoch 40 evaluating [time: 42.34s, valid_score: 0.025900]
+Sun 06 Aug 2023 22:19:10 INFO valid result: 
+ndcg@50: 0.0259    
+Sun 06 Aug 2023 22:19:10 INFO test result: 
+ndcg@50: 0.0268    
+Sun 06 Aug 2023 22:19:37 INFO epoch 41 training [time: 26.85s, train loss: 930.4810]
+Sun 06 Aug 2023 22:21:02 INFO epoch 41 evaluating [time: 42.60s, valid_score: 0.026000]
+Sun 06 Aug 2023 22:21:02 INFO valid result: 
+ndcg@50: 0.0260    
+Sun 06 Aug 2023 22:21:02 INFO test result: 
+ndcg@50: 0.0268    
+Sun 06 Aug 2023 22:21:02 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 22:21:29 INFO epoch 42 training [time: 26.90s, train loss: 930.0953]
+Sun 06 Aug 2023 22:22:54 INFO epoch 42 evaluating [time: 42.30s, valid_score: 0.026000]
+Sun 06 Aug 2023 22:22:54 INFO valid result: 
+ndcg@50: 0.0260    
+Sun 06 Aug 2023 22:22:54 INFO test result: 
+ndcg@50: 0.0269    
+Sun 06 Aug 2023 22:23:21 INFO epoch 43 training [time: 27.07s, train loss: 930.3887]
+Sun 06 Aug 2023 22:24:46 INFO epoch 43 evaluating [time: 42.64s, valid_score: 0.026100]
+Sun 06 Aug 2023 22:24:46 INFO valid result: 
+ndcg@50: 0.0261    
+Sun 06 Aug 2023 22:24:46 INFO test result: 
+ndcg@50: 0.0269    
+Sun 06 Aug 2023 22:24:46 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 22:25:13 INFO epoch 44 training [time: 26.98s, train loss: 930.4644]
+Sun 06 Aug 2023 22:26:38 INFO epoch 44 evaluating [time: 42.43s, valid_score: 0.026100]
+Sun 06 Aug 2023 22:26:38 INFO valid result: 
+ndcg@50: 0.0261    
+Sun 06 Aug 2023 22:26:38 INFO test result: 
+ndcg@50: 0.0269    
+Sun 06 Aug 2023 22:27:05 INFO epoch 45 training [time: 27.13s, train loss: 929.9731]
+Sun 06 Aug 2023 22:28:29 INFO epoch 45 evaluating [time: 42.43s, valid_score: 0.026200]
+Sun 06 Aug 2023 22:28:29 INFO valid result: 
+ndcg@50: 0.0262    
+Sun 06 Aug 2023 22:28:29 INFO test result: 
+ndcg@50: 0.0270    
+Sun 06 Aug 2023 22:28:29 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 22:28:56 INFO epoch 46 training [time: 26.93s, train loss: 929.6455]
+Sun 06 Aug 2023 22:30:21 INFO epoch 46 evaluating [time: 42.54s, valid_score: 0.026300]
+Sun 06 Aug 2023 22:30:21 INFO valid result: 
+ndcg@50: 0.0263    
+Sun 06 Aug 2023 22:30:21 INFO test result: 
+ndcg@50: 0.0270    
+Sun 06 Aug 2023 22:30:21 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 22:30:48 INFO epoch 47 training [time: 26.91s, train loss: 929.7140]
+Sun 06 Aug 2023 22:32:14 INFO epoch 47 evaluating [time: 42.70s, valid_score: 0.026400]
+Sun 06 Aug 2023 22:32:14 INFO valid result: 
+ndcg@50: 0.0264    
+Sun 06 Aug 2023 22:32:14 INFO test result: 
+ndcg@50: 0.0271    
+Sun 06 Aug 2023 22:32:14 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 22:32:41 INFO epoch 48 training [time: 26.90s, train loss: 929.7735]
+Sun 06 Aug 2023 22:34:08 INFO epoch 48 evaluating [time: 43.55s, valid_score: 0.026400]
+Sun 06 Aug 2023 22:34:08 INFO valid result: 
+ndcg@50: 0.0264    
+Sun 06 Aug 2023 22:34:08 INFO test result: 
+ndcg@50: 0.0272    
+Sun 06 Aug 2023 22:34:35 INFO epoch 49 training [time: 26.96s, train loss: 929.5740]
+Sun 06 Aug 2023 22:36:00 INFO epoch 49 evaluating [time: 43.18s, valid_score: 0.026500]
+Sun 06 Aug 2023 22:36:00 INFO valid result: 
+ndcg@50: 0.0265    
+Sun 06 Aug 2023 22:36:00 INFO test result: 
+ndcg@50: 0.0273    
+Sun 06 Aug 2023 22:36:00 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 22:36:27 INFO epoch 50 training [time: 26.96s, train loss: 929.5585]
+Sun 06 Aug 2023 22:37:53 INFO epoch 50 evaluating [time: 42.48s, valid_score: 0.026400]
+Sun 06 Aug 2023 22:37:53 INFO valid result: 
+ndcg@50: 0.0264    
+Sun 06 Aug 2023 22:37:53 INFO test result: 
+ndcg@50: 0.0273    
+Sun 06 Aug 2023 22:38:20 INFO epoch 51 training [time: 26.97s, train loss: 929.4920]
+Sun 06 Aug 2023 22:39:46 INFO epoch 51 evaluating [time: 42.98s, valid_score: 0.026500]
+Sun 06 Aug 2023 22:39:46 INFO valid result: 
+ndcg@50: 0.0265    
+Sun 06 Aug 2023 22:39:46 INFO test result: 
+ndcg@50: 0.0274    
+Sun 06 Aug 2023 22:40:12 INFO epoch 52 training [time: 26.92s, train loss: 929.4131]
+Sun 06 Aug 2023 22:41:37 INFO epoch 52 evaluating [time: 42.32s, valid_score: 0.026600]
+Sun 06 Aug 2023 22:41:37 INFO valid result: 
+ndcg@50: 0.0266    
+Sun 06 Aug 2023 22:41:37 INFO test result: 
+ndcg@50: 0.0273    
+Sun 06 Aug 2023 22:41:37 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 22:42:04 INFO epoch 53 training [time: 26.98s, train loss: 929.2282]
+Sun 06 Aug 2023 22:43:30 INFO epoch 53 evaluating [time: 42.20s, valid_score: 0.026500]
+Sun 06 Aug 2023 22:43:30 INFO valid result: 
+ndcg@50: 0.0265    
+Sun 06 Aug 2023 22:43:30 INFO test result: 
+ndcg@50: 0.0274    
+Sun 06 Aug 2023 22:43:57 INFO epoch 54 training [time: 26.91s, train loss: 929.0565]
+Sun 06 Aug 2023 22:45:22 INFO epoch 54 evaluating [time: 43.13s, valid_score: 0.026600]
+Sun 06 Aug 2023 22:45:22 INFO valid result: 
+ndcg@50: 0.0266    
+Sun 06 Aug 2023 22:45:22 INFO test result: 
+ndcg@50: 0.0275    
+Sun 06 Aug 2023 22:45:49 INFO epoch 55 training [time: 27.01s, train loss: 929.2546]
+Sun 06 Aug 2023 22:47:18 INFO epoch 55 evaluating [time: 44.13s, valid_score: 0.026600]
+Sun 06 Aug 2023 22:47:18 INFO valid result: 
+ndcg@50: 0.0266    
+Sun 06 Aug 2023 22:47:18 INFO test result: 
+ndcg@50: 0.0275    
+Sun 06 Aug 2023 22:47:44 INFO epoch 56 training [time: 26.92s, train loss: 929.3518]
+Sun 06 Aug 2023 22:49:11 INFO epoch 56 evaluating [time: 43.07s, valid_score: 0.026700]
+Sun 06 Aug 2023 22:49:11 INFO valid result: 
+ndcg@50: 0.0267    
+Sun 06 Aug 2023 22:49:11 INFO test result: 
+ndcg@50: 0.0275    
+Sun 06 Aug 2023 22:49:11 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 22:49:38 INFO epoch 57 training [time: 26.96s, train loss: 929.0986]
+Sun 06 Aug 2023 22:51:03 INFO epoch 57 evaluating [time: 42.39s, valid_score: 0.026700]
+Sun 06 Aug 2023 22:51:03 INFO valid result: 
+ndcg@50: 0.0267    
+Sun 06 Aug 2023 22:51:03 INFO test result: 
+ndcg@50: 0.0275    
+Sun 06 Aug 2023 22:51:30 INFO epoch 58 training [time: 26.99s, train loss: 929.0204]
+Sun 06 Aug 2023 22:52:57 INFO epoch 58 evaluating [time: 43.52s, valid_score: 0.026800]
+Sun 06 Aug 2023 22:52:57 INFO valid result: 
+ndcg@50: 0.0268    
+Sun 06 Aug 2023 22:52:57 INFO test result: 
+ndcg@50: 0.0275    
+Sun 06 Aug 2023 22:52:57 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 22:53:24 INFO epoch 59 training [time: 26.97s, train loss: 929.1967]
+Sun 06 Aug 2023 22:54:50 INFO epoch 59 evaluating [time: 42.56s, valid_score: 0.026800]
+Sun 06 Aug 2023 22:54:50 INFO valid result: 
+ndcg@50: 0.0268    
+Sun 06 Aug 2023 22:54:50 INFO test result: 
+ndcg@50: 0.0275    
+Sun 06 Aug 2023 22:55:17 INFO epoch 60 training [time: 26.94s, train loss: 929.1115]
+Sun 06 Aug 2023 22:56:44 INFO epoch 60 evaluating [time: 43.18s, valid_score: 0.026800]
+Sun 06 Aug 2023 22:56:44 INFO valid result: 
+ndcg@50: 0.0268    
+Sun 06 Aug 2023 22:56:44 INFO test result: 
+ndcg@50: 0.0276    
+Sun 06 Aug 2023 22:57:10 INFO epoch 61 training [time: 26.93s, train loss: 928.8132]
+Sun 06 Aug 2023 22:58:35 INFO epoch 61 evaluating [time: 42.62s, valid_score: 0.026800]
+Sun 06 Aug 2023 22:58:35 INFO valid result: 
+ndcg@50: 0.0268    
+Sun 06 Aug 2023 22:58:35 INFO test result: 
+ndcg@50: 0.0276    
+Sun 06 Aug 2023 22:59:02 INFO epoch 62 training [time: 26.94s, train loss: 929.1443]
+Sun 06 Aug 2023 23:00:28 INFO epoch 62 evaluating [time: 42.80s, valid_score: 0.026900]
+Sun 06 Aug 2023 23:00:28 INFO valid result: 
+ndcg@50: 0.0269    
+Sun 06 Aug 2023 23:00:28 INFO test result: 
+ndcg@50: 0.0276    
+Sun 06 Aug 2023 23:00:28 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 23:00:55 INFO epoch 63 training [time: 26.89s, train loss: 928.8935]
+Sun 06 Aug 2023 23:02:21 INFO epoch 63 evaluating [time: 43.74s, valid_score: 0.026900]
+Sun 06 Aug 2023 23:02:21 INFO valid result: 
+ndcg@50: 0.0269    
+Sun 06 Aug 2023 23:02:21 INFO test result: 
+ndcg@50: 0.0277    
+Sun 06 Aug 2023 23:02:48 INFO epoch 64 training [time: 26.87s, train loss: 928.9860]
+Sun 06 Aug 2023 23:04:13 INFO epoch 64 evaluating [time: 42.73s, valid_score: 0.026900]
+Sun 06 Aug 2023 23:04:13 INFO valid result: 
+ndcg@50: 0.0269    
+Sun 06 Aug 2023 23:04:13 INFO test result: 
+ndcg@50: 0.0277    
+Sun 06 Aug 2023 23:04:40 INFO epoch 65 training [time: 26.93s, train loss: 929.0792]
+Sun 06 Aug 2023 23:06:07 INFO epoch 65 evaluating [time: 42.95s, valid_score: 0.027000]
+Sun 06 Aug 2023 23:06:07 INFO valid result: 
+ndcg@50: 0.0270    
+Sun 06 Aug 2023 23:06:07 INFO test result: 
+ndcg@50: 0.0277    
+Sun 06 Aug 2023 23:06:07 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 23:06:34 INFO epoch 66 training [time: 26.92s, train loss: 929.1280]
+Sun 06 Aug 2023 23:07:59 INFO epoch 66 evaluating [time: 42.07s, valid_score: 0.027000]
+Sun 06 Aug 2023 23:07:59 INFO valid result: 
+ndcg@50: 0.0270    
+Sun 06 Aug 2023 23:07:59 INFO test result: 
+ndcg@50: 0.0277    
+Sun 06 Aug 2023 23:08:26 INFO epoch 67 training [time: 26.87s, train loss: 928.9403]
+Sun 06 Aug 2023 23:09:52 INFO epoch 67 evaluating [time: 43.56s, valid_score: 0.027000]
+Sun 06 Aug 2023 23:09:52 INFO valid result: 
+ndcg@50: 0.0270    
+Sun 06 Aug 2023 23:09:52 INFO test result: 
+ndcg@50: 0.0277    
+Sun 06 Aug 2023 23:10:19 INFO epoch 68 training [time: 26.77s, train loss: 928.9132]
+Sun 06 Aug 2023 23:11:44 INFO epoch 68 evaluating [time: 42.52s, valid_score: 0.027000]
+Sun 06 Aug 2023 23:11:44 INFO valid result: 
+ndcg@50: 0.0270    
+Sun 06 Aug 2023 23:11:44 INFO test result: 
+ndcg@50: 0.0278    
+Sun 06 Aug 2023 23:12:11 INFO epoch 69 training [time: 26.88s, train loss: 928.9496]
+Sun 06 Aug 2023 23:13:36 INFO epoch 69 evaluating [time: 42.86s, valid_score: 0.027000]
+Sun 06 Aug 2023 23:13:36 INFO valid result: 
+ndcg@50: 0.0270    
+Sun 06 Aug 2023 23:13:36 INFO test result: 
+ndcg@50: 0.0278    
+Sun 06 Aug 2023 23:14:03 INFO epoch 70 training [time: 26.92s, train loss: 929.2202]
+Sun 06 Aug 2023 23:15:28 INFO epoch 70 evaluating [time: 42.76s, valid_score: 0.027100]
+Sun 06 Aug 2023 23:15:28 INFO valid result: 
+ndcg@50: 0.0271    
+Sun 06 Aug 2023 23:15:28 INFO test result: 
+ndcg@50: 0.0278    
+Sun 06 Aug 2023 23:15:28 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 23:15:56 INFO epoch 71 training [time: 27.22s, train loss: 929.3561]
+Sun 06 Aug 2023 23:17:22 INFO epoch 71 evaluating [time: 43.82s, valid_score: 0.027100]
+Sun 06 Aug 2023 23:17:22 INFO valid result: 
+ndcg@50: 0.0271    
+Sun 06 Aug 2023 23:17:22 INFO test result: 
+ndcg@50: 0.0277    
+Sun 06 Aug 2023 23:17:49 INFO epoch 72 training [time: 27.02s, train loss: 929.1209]
+Sun 06 Aug 2023 23:19:16 INFO epoch 72 evaluating [time: 43.56s, valid_score: 0.027100]
+Sun 06 Aug 2023 23:19:16 INFO valid result: 
+ndcg@50: 0.0271    
+Sun 06 Aug 2023 23:19:16 INFO test result: 
+ndcg@50: 0.0278    
+Sun 06 Aug 2023 23:19:43 INFO epoch 73 training [time: 26.87s, train loss: 929.0485]
+Sun 06 Aug 2023 23:21:08 INFO epoch 73 evaluating [time: 42.84s, valid_score: 0.027100]
+Sun 06 Aug 2023 23:21:08 INFO valid result: 
+ndcg@50: 0.0271    
+Sun 06 Aug 2023 23:21:08 INFO test result: 
+ndcg@50: 0.0278    
+Sun 06 Aug 2023 23:21:35 INFO epoch 74 training [time: 26.90s, train loss: 929.0487]
+Sun 06 Aug 2023 23:23:01 INFO epoch 74 evaluating [time: 42.87s, valid_score: 0.027200]
+Sun 06 Aug 2023 23:23:01 INFO valid result: 
+ndcg@50: 0.0272    
+Sun 06 Aug 2023 23:23:01 INFO test result: 
+ndcg@50: 0.0278    
+Sun 06 Aug 2023 23:23:01 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 23:23:28 INFO epoch 75 training [time: 26.91s, train loss: 929.0694]
+Sun 06 Aug 2023 23:24:55 INFO epoch 75 evaluating [time: 43.82s, valid_score: 0.027100]
+Sun 06 Aug 2023 23:24:55 INFO valid result: 
+ndcg@50: 0.0271    
+Sun 06 Aug 2023 23:24:55 INFO test result: 
+ndcg@50: 0.0278    
+Sun 06 Aug 2023 23:25:22 INFO epoch 76 training [time: 26.91s, train loss: 929.3479]
+Sun 06 Aug 2023 23:26:47 INFO epoch 76 evaluating [time: 42.83s, valid_score: 0.027200]
+Sun 06 Aug 2023 23:26:47 INFO valid result: 
+ndcg@50: 0.0272    
+Sun 06 Aug 2023 23:26:47 INFO test result: 
+ndcg@50: 0.0278    
+Sun 06 Aug 2023 23:27:14 INFO epoch 77 training [time: 26.87s, train loss: 929.1126]
+Sun 06 Aug 2023 23:28:38 INFO epoch 77 evaluating [time: 42.74s, valid_score: 0.027200]
+Sun 06 Aug 2023 23:28:38 INFO valid result: 
+ndcg@50: 0.0272    
+Sun 06 Aug 2023 23:28:38 INFO test result: 
+ndcg@50: 0.0278    
+Sun 06 Aug 2023 23:29:05 INFO epoch 78 training [time: 26.88s, train loss: 929.2875]
+Sun 06 Aug 2023 23:30:31 INFO epoch 78 evaluating [time: 42.91s, valid_score: 0.027300]
+Sun 06 Aug 2023 23:30:31 INFO valid result: 
+ndcg@50: 0.0273    
+Sun 06 Aug 2023 23:30:31 INFO test result: 
+ndcg@50: 0.0278    
+Sun 06 Aug 2023 23:30:31 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 23:30:58 INFO epoch 79 training [time: 27.14s, train loss: 929.2618]
+Sun 06 Aug 2023 23:32:24 INFO epoch 79 evaluating [time: 43.20s, valid_score: 0.027300]
+Sun 06 Aug 2023 23:32:24 INFO valid result: 
+ndcg@50: 0.0273    
+Sun 06 Aug 2023 23:32:24 INFO test result: 
+ndcg@50: 0.0279    
+Sun 06 Aug 2023 23:32:51 INFO epoch 80 training [time: 26.95s, train loss: 929.4258]
+Sun 06 Aug 2023 23:34:17 INFO epoch 80 evaluating [time: 42.99s, valid_score: 0.027300]
+Sun 06 Aug 2023 23:34:17 INFO valid result: 
+ndcg@50: 0.0273    
+Sun 06 Aug 2023 23:34:17 INFO test result: 
+ndcg@50: 0.0279    
+Sun 06 Aug 2023 23:34:44 INFO epoch 81 training [time: 27.01s, train loss: 929.3708]
+Sun 06 Aug 2023 23:36:09 INFO epoch 81 evaluating [time: 43.18s, valid_score: 0.027300]
+Sun 06 Aug 2023 23:36:09 INFO valid result: 
+ndcg@50: 0.0273    
+Sun 06 Aug 2023 23:36:09 INFO test result: 
+ndcg@50: 0.0279    
+Sun 06 Aug 2023 23:36:36 INFO epoch 82 training [time: 26.88s, train loss: 929.4927]
+Sun 06 Aug 2023 23:38:02 INFO epoch 82 evaluating [time: 43.29s, valid_score: 0.027300]
+Sun 06 Aug 2023 23:38:02 INFO valid result: 
+ndcg@50: 0.0273    
+Sun 06 Aug 2023 23:38:02 INFO test result: 
+ndcg@50: 0.0280    
+Sun 06 Aug 2023 23:38:29 INFO epoch 83 training [time: 27.10s, train loss: 929.3388]
+Sun 06 Aug 2023 23:39:56 INFO epoch 83 evaluating [time: 43.06s, valid_score: 0.027300]
+Sun 06 Aug 2023 23:39:56 INFO valid result: 
+ndcg@50: 0.0273    
+Sun 06 Aug 2023 23:39:56 INFO test result: 
+ndcg@50: 0.0280    
+Sun 06 Aug 2023 23:40:23 INFO epoch 84 training [time: 26.97s, train loss: 929.5640]
+Sun 06 Aug 2023 23:41:48 INFO epoch 84 evaluating [time: 42.38s, valid_score: 0.027400]
+Sun 06 Aug 2023 23:41:48 INFO valid result: 
+ndcg@50: 0.0274    
+Sun 06 Aug 2023 23:41:48 INFO test result: 
+ndcg@50: 0.0280    
+Sun 06 Aug 2023 23:41:48 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 23:42:15 INFO epoch 85 training [time: 26.98s, train loss: 929.6650]
+Sun 06 Aug 2023 23:43:40 INFO epoch 85 evaluating [time: 42.85s, valid_score: 0.027400]
+Sun 06 Aug 2023 23:43:40 INFO valid result: 
+ndcg@50: 0.0274    
+Sun 06 Aug 2023 23:43:40 INFO test result: 
+ndcg@50: 0.0279    
+Sun 06 Aug 2023 23:44:07 INFO epoch 86 training [time: 26.97s, train loss: 929.5227]
+Sun 06 Aug 2023 23:45:33 INFO epoch 86 evaluating [time: 42.64s, valid_score: 0.027400]
+Sun 06 Aug 2023 23:45:33 INFO valid result: 
+ndcg@50: 0.0274    
+Sun 06 Aug 2023 23:45:33 INFO test result: 
+ndcg@50: 0.0280    
+Sun 06 Aug 2023 23:46:00 INFO epoch 87 training [time: 27.15s, train loss: 929.8610]
+Sun 06 Aug 2023 23:47:26 INFO epoch 87 evaluating [time: 42.75s, valid_score: 0.027400]
+Sun 06 Aug 2023 23:47:26 INFO valid result: 
+ndcg@50: 0.0274    
+Sun 06 Aug 2023 23:47:26 INFO test result: 
+ndcg@50: 0.0279    
+Sun 06 Aug 2023 23:47:52 INFO epoch 88 training [time: 26.92s, train loss: 929.6109]
+Sun 06 Aug 2023 23:49:18 INFO epoch 88 evaluating [time: 42.93s, valid_score: 0.027400]
+Sun 06 Aug 2023 23:49:18 INFO valid result: 
+ndcg@50: 0.0274    
+Sun 06 Aug 2023 23:49:18 INFO test result: 
+ndcg@50: 0.0280    
+Sun 06 Aug 2023 23:49:45 INFO epoch 89 training [time: 26.92s, train loss: 929.5805]
+Sun 06 Aug 2023 23:51:10 INFO epoch 89 evaluating [time: 42.42s, valid_score: 0.027500]
+Sun 06 Aug 2023 23:51:10 INFO valid result: 
+ndcg@50: 0.0275    
+Sun 06 Aug 2023 23:51:10 INFO test result: 
+ndcg@50: 0.0280    
+Sun 06 Aug 2023 23:51:10 INFO ██ BM3--Best validation results updated!!!
+Sun 06 Aug 2023 23:51:37 INFO epoch 90 training [time: 26.90s, train loss: 929.7590]
+Sun 06 Aug 2023 23:53:04 INFO epoch 90 evaluating [time: 43.13s, valid_score: 0.027500]
+Sun 06 Aug 2023 23:53:04 INFO valid result: 
+ndcg@50: 0.0275    
+Sun 06 Aug 2023 23:53:04 INFO test result: 
+ndcg@50: 0.0280    
+Sun 06 Aug 2023 23:53:31 INFO epoch 91 training [time: 26.88s, train loss: 929.8161]
+Sun 06 Aug 2023 23:54:57 INFO epoch 91 evaluating [time: 44.11s, valid_score: 0.027500]
+Sun 06 Aug 2023 23:54:57 INFO valid result: 
+ndcg@50: 0.0275    
+Sun 06 Aug 2023 23:54:57 INFO test result: 
+ndcg@50: 0.0280    
+Sun 06 Aug 2023 23:55:23 INFO epoch 92 training [time: 26.84s, train loss: 929.9297]
+Sun 06 Aug 2023 23:56:49 INFO epoch 92 evaluating [time: 42.79s, valid_score: 0.027500]
+Sun 06 Aug 2023 23:56:49 INFO valid result: 
+ndcg@50: 0.0275    
+Sun 06 Aug 2023 23:56:49 INFO test result: 
+ndcg@50: 0.0281    
+Sun 06 Aug 2023 23:57:16 INFO epoch 93 training [time: 26.89s, train loss: 930.0343]
+Sun 06 Aug 2023 23:58:41 INFO epoch 93 evaluating [time: 43.02s, valid_score: 0.027500]
+Sun 06 Aug 2023 23:58:41 INFO valid result: 
+ndcg@50: 0.0275    
+Sun 06 Aug 2023 23:58:41 INFO test result: 
+ndcg@50: 0.0281    
+Sun 06 Aug 2023 23:59:08 INFO epoch 94 training [time: 26.89s, train loss: 930.2768]
+Mon 07 Aug 2023 00:00:34 INFO epoch 94 evaluating [time: 42.37s, valid_score: 0.027500]
+Mon 07 Aug 2023 00:00:34 INFO valid result: 
+ndcg@50: 0.0275    
+Mon 07 Aug 2023 00:00:34 INFO test result: 
+ndcg@50: 0.0281    
+Mon 07 Aug 2023 00:01:01 INFO epoch 95 training [time: 27.03s, train loss: 930.3027]
+Mon 07 Aug 2023 00:02:27 INFO epoch 95 evaluating [time: 43.00s, valid_score: 0.027500]
+Mon 07 Aug 2023 00:02:27 INFO valid result: 
+ndcg@50: 0.0275    
+Mon 07 Aug 2023 00:02:27 INFO test result: 
+ndcg@50: 0.0281    
+Mon 07 Aug 2023 00:02:54 INFO epoch 96 training [time: 26.95s, train loss: 929.9723]
+Mon 07 Aug 2023 00:04:18 INFO epoch 96 evaluating [time: 41.99s, valid_score: 0.027500]
+Mon 07 Aug 2023 00:04:18 INFO valid result: 
+ndcg@50: 0.0275    
+Mon 07 Aug 2023 00:04:18 INFO test result: 
+ndcg@50: 0.0281    
+Mon 07 Aug 2023 00:04:45 INFO epoch 97 training [time: 26.91s, train loss: 930.0982]
+Mon 07 Aug 2023 00:06:12 INFO epoch 97 evaluating [time: 43.88s, valid_score: 0.027600]
+Mon 07 Aug 2023 00:06:12 INFO valid result: 
+ndcg@50: 0.0276    
+Mon 07 Aug 2023 00:06:12 INFO test result: 
+ndcg@50: 0.0281    
+Mon 07 Aug 2023 00:06:12 INFO ██ BM3--Best validation results updated!!!
+Mon 07 Aug 2023 00:06:39 INFO epoch 98 training [time: 26.90s, train loss: 930.1410]
+Mon 07 Aug 2023 00:08:05 INFO epoch 98 evaluating [time: 42.88s, valid_score: 0.027600]
+Mon 07 Aug 2023 00:08:05 INFO valid result: 
+ndcg@50: 0.0276    
+Mon 07 Aug 2023 00:08:05 INFO test result: 
+ndcg@50: 0.0281    
+Mon 07 Aug 2023 00:08:32 INFO epoch 99 training [time: 27.07s, train loss: 930.7363]
+Mon 07 Aug 2023 00:09:57 INFO epoch 99 evaluating [time: 42.81s, valid_score: 0.027500]
+Mon 07 Aug 2023 00:09:57 INFO valid result: 
+ndcg@50: 0.0275    
+Mon 07 Aug 2023 00:09:57 INFO test result: 
+ndcg@50: 0.0281    
+Mon 07 Aug 2023 00:10:24 INFO epoch 100 training [time: 27.17s, train loss: 930.4040]
+Mon 07 Aug 2023 00:11:51 INFO epoch 100 evaluating [time: 43.69s, valid_score: 0.027600]
+Mon 07 Aug 2023 00:11:51 INFO valid result: 
+ndcg@50: 0.0276    
+Mon 07 Aug 2023 00:11:51 INFO test result: 
+ndcg@50: 0.0282    
+Mon 07 Aug 2023 00:12:18 INFO epoch 101 training [time: 27.13s, train loss: 930.3195]
+Mon 07 Aug 2023 00:13:45 INFO epoch 101 evaluating [time: 43.38s, valid_score: 0.027600]
+Mon 07 Aug 2023 00:13:45 INFO valid result: 
+ndcg@50: 0.0276    
+Mon 07 Aug 2023 00:13:45 INFO test result: 
+ndcg@50: 0.0282    
+Mon 07 Aug 2023 00:14:11 INFO epoch 102 training [time: 26.81s, train loss: 930.2926]
+Mon 07 Aug 2023 00:15:35 INFO epoch 102 evaluating [time: 42.10s, valid_score: 0.027500]
+Mon 07 Aug 2023 00:15:35 INFO valid result: 
+ndcg@50: 0.0275    
+Mon 07 Aug 2023 00:15:35 INFO test result: 
+ndcg@50: 0.0282    
+Mon 07 Aug 2023 00:16:02 INFO epoch 103 training [time: 26.90s, train loss: 930.5438]
+Mon 07 Aug 2023 00:17:29 INFO epoch 103 evaluating [time: 43.42s, valid_score: 0.027600]
+Mon 07 Aug 2023 00:17:29 INFO valid result: 
+ndcg@50: 0.0276    
+Mon 07 Aug 2023 00:17:29 INFO test result: 
+ndcg@50: 0.0283    
+Mon 07 Aug 2023 00:17:56 INFO epoch 104 training [time: 26.95s, train loss: 930.8746]
+Mon 07 Aug 2023 00:19:21 INFO epoch 104 evaluating [time: 42.34s, valid_score: 0.027600]
+Mon 07 Aug 2023 00:19:21 INFO valid result: 
+ndcg@50: 0.0276    
+Mon 07 Aug 2023 00:19:21 INFO test result: 
+ndcg@50: 0.0283    
+Mon 07 Aug 2023 00:19:48 INFO epoch 105 training [time: 26.91s, train loss: 930.3538]
+Mon 07 Aug 2023 00:21:12 INFO epoch 105 evaluating [time: 42.09s, valid_score: 0.027700]
+Mon 07 Aug 2023 00:21:12 INFO valid result: 
+ndcg@50: 0.0277    
+Mon 07 Aug 2023 00:21:12 INFO test result: 
+ndcg@50: 0.0282    
+Mon 07 Aug 2023 00:21:12 INFO ██ BM3--Best validation results updated!!!
+Mon 07 Aug 2023 00:21:39 INFO epoch 106 training [time: 26.93s, train loss: 930.7869]
+Mon 07 Aug 2023 00:23:06 INFO epoch 106 evaluating [time: 43.72s, valid_score: 0.027700]
+Mon 07 Aug 2023 00:23:06 INFO valid result: 
+ndcg@50: 0.0277    
+Mon 07 Aug 2023 00:23:06 INFO test result: 
+ndcg@50: 0.0282    
+Mon 07 Aug 2023 00:23:33 INFO epoch 107 training [time: 26.90s, train loss: 930.9335]
+Mon 07 Aug 2023 00:24:58 INFO epoch 107 evaluating [time: 43.09s, valid_score: 0.027600]
+Mon 07 Aug 2023 00:24:58 INFO valid result: 
+ndcg@50: 0.0276    
+Mon 07 Aug 2023 00:24:58 INFO test result: 
+ndcg@50: 0.0282    
+Mon 07 Aug 2023 00:25:25 INFO epoch 108 training [time: 26.98s, train loss: 931.1047]
+Mon 07 Aug 2023 00:26:51 INFO epoch 108 evaluating [time: 42.97s, valid_score: 0.027700]
+Mon 07 Aug 2023 00:26:51 INFO valid result: 
+ndcg@50: 0.0277    
+Mon 07 Aug 2023 00:26:51 INFO test result: 
+ndcg@50: 0.0282    
+Mon 07 Aug 2023 00:27:18 INFO epoch 109 training [time: 26.94s, train loss: 930.8888]
+Mon 07 Aug 2023 00:28:45 INFO epoch 109 evaluating [time: 44.07s, valid_score: 0.027700]
+Mon 07 Aug 2023 00:28:45 INFO valid result: 
+ndcg@50: 0.0277    
+Mon 07 Aug 2023 00:28:45 INFO test result: 
+ndcg@50: 0.0282    
+Mon 07 Aug 2023 00:29:12 INFO epoch 110 training [time: 26.93s, train loss: 930.7926]
+Mon 07 Aug 2023 00:30:37 INFO epoch 110 evaluating [time: 43.00s, valid_score: 0.027700]
+Mon 07 Aug 2023 00:30:37 INFO valid result: 
+ndcg@50: 0.0277    
+Mon 07 Aug 2023 00:30:37 INFO test result: 
+ndcg@50: 0.0282    
+Mon 07 Aug 2023 00:31:04 INFO epoch 111 training [time: 26.90s, train loss: 931.3812]
+Mon 07 Aug 2023 00:32:30 INFO epoch 111 evaluating [time: 42.99s, valid_score: 0.027700]
+Mon 07 Aug 2023 00:32:30 INFO valid result: 
+ndcg@50: 0.0277    
+Mon 07 Aug 2023 00:32:30 INFO test result: 
+ndcg@50: 0.0282    
+Mon 07 Aug 2023 00:32:57 INFO epoch 112 training [time: 26.89s, train loss: 931.1949]
+Mon 07 Aug 2023 00:34:23 INFO epoch 112 evaluating [time: 43.13s, valid_score: 0.027800]
+Mon 07 Aug 2023 00:34:23 INFO valid result: 
+ndcg@50: 0.0278    
+Mon 07 Aug 2023 00:34:23 INFO test result: 
+ndcg@50: 0.0282    
+Mon 07 Aug 2023 00:34:23 INFO ██ BM3--Best validation results updated!!!
+Mon 07 Aug 2023 00:34:49 INFO epoch 113 training [time: 26.87s, train loss: 930.9452]
+Mon 07 Aug 2023 00:36:16 INFO epoch 113 evaluating [time: 43.09s, valid_score: 0.027700]
+Mon 07 Aug 2023 00:36:16 INFO valid result: 
+ndcg@50: 0.0277    
+Mon 07 Aug 2023 00:36:16 INFO test result: 
+ndcg@50: 0.0282    
+Mon 07 Aug 2023 00:36:42 INFO epoch 114 training [time: 26.97s, train loss: 931.2736]
+Mon 07 Aug 2023 00:38:09 INFO epoch 114 evaluating [time: 42.73s, valid_score: 0.027800]
+Mon 07 Aug 2023 00:38:09 INFO valid result: 
+ndcg@50: 0.0278    
+Mon 07 Aug 2023 00:38:09 INFO test result: 
+ndcg@50: 0.0282    
+Mon 07 Aug 2023 00:38:35 INFO epoch 115 training [time: 26.90s, train loss: 931.1365]
+Mon 07 Aug 2023 00:40:01 INFO epoch 115 evaluating [time: 42.83s, valid_score: 0.027700]
+Mon 07 Aug 2023 00:40:01 INFO valid result: 
+ndcg@50: 0.0277    
+Mon 07 Aug 2023 00:40:01 INFO test result: 
+ndcg@50: 0.0283    
+Mon 07 Aug 2023 00:40:28 INFO epoch 116 training [time: 26.91s, train loss: 931.5178]
+Mon 07 Aug 2023 00:41:53 INFO epoch 116 evaluating [time: 42.64s, valid_score: 0.027700]
+Mon 07 Aug 2023 00:41:53 INFO valid result: 
+ndcg@50: 0.0277    
+Mon 07 Aug 2023 00:41:53 INFO test result: 
+ndcg@50: 0.0283    
+Mon 07 Aug 2023 00:42:20 INFO epoch 117 training [time: 26.99s, train loss: 931.3086]
+Mon 07 Aug 2023 00:43:46 INFO epoch 117 evaluating [time: 43.12s, valid_score: 0.027700]
+Mon 07 Aug 2023 00:43:46 INFO valid result: 
+ndcg@50: 0.0277    
+Mon 07 Aug 2023 00:43:46 INFO test result: 
+ndcg@50: 0.0283    
+Mon 07 Aug 2023 00:44:13 INFO epoch 118 training [time: 26.94s, train loss: 931.3642]
+Mon 07 Aug 2023 00:45:39 INFO epoch 118 evaluating [time: 43.66s, valid_score: 0.027700]
+Mon 07 Aug 2023 00:45:39 INFO valid result: 
+ndcg@50: 0.0277    
+Mon 07 Aug 2023 00:45:39 INFO test result: 
+ndcg@50: 0.0283    
+Mon 07 Aug 2023 00:46:06 INFO epoch 119 training [time: 26.80s, train loss: 931.5265]
+Mon 07 Aug 2023 00:47:32 INFO epoch 119 evaluating [time: 42.90s, valid_score: 0.027700]
+Mon 07 Aug 2023 00:47:32 INFO valid result: 
+ndcg@50: 0.0277    
+Mon 07 Aug 2023 00:47:32 INFO test result: 
+ndcg@50: 0.0283    
+Mon 07 Aug 2023 00:47:59 INFO epoch 120 training [time: 26.90s, train loss: 931.8330]
+Mon 07 Aug 2023 00:49:24 INFO epoch 120 evaluating [time: 42.53s, valid_score: 0.027700]
+Mon 07 Aug 2023 00:49:24 INFO valid result: 
+ndcg@50: 0.0277    
+Mon 07 Aug 2023 00:49:24 INFO test result: 
+ndcg@50: 0.0284    
+Mon 07 Aug 2023 00:49:51 INFO epoch 121 training [time: 26.88s, train loss: 931.5866]
+Mon 07 Aug 2023 00:51:17 INFO epoch 121 evaluating [time: 43.55s, valid_score: 0.027800]
+Mon 07 Aug 2023 00:51:17 INFO valid result: 
+ndcg@50: 0.0278    
+Mon 07 Aug 2023 00:51:17 INFO test result: 
+ndcg@50: 0.0283    
+Mon 07 Aug 2023 00:51:45 INFO epoch 122 training [time: 27.03s, train loss: 931.4059]
+Mon 07 Aug 2023 00:53:11 INFO epoch 122 evaluating [time: 43.15s, valid_score: 0.027800]
+Mon 07 Aug 2023 00:53:11 INFO valid result: 
+ndcg@50: 0.0278    
+Mon 07 Aug 2023 00:53:11 INFO test result: 
+ndcg@50: 0.0283    
+Mon 07 Aug 2023 00:53:38 INFO epoch 123 training [time: 26.90s, train loss: 931.5715]
+Mon 07 Aug 2023 00:55:03 INFO epoch 123 evaluating [time: 43.04s, valid_score: 0.027700]
+Mon 07 Aug 2023 00:55:03 INFO valid result: 
+ndcg@50: 0.0277    
+Mon 07 Aug 2023 00:55:03 INFO test result: 
+ndcg@50: 0.0284    
+Mon 07 Aug 2023 00:55:30 INFO epoch 124 training [time: 27.27s, train loss: 932.0313]
+Mon 07 Aug 2023 00:56:57 INFO epoch 124 evaluating [time: 43.26s, valid_score: 0.027800]
+Mon 07 Aug 2023 00:56:57 INFO valid result: 
+ndcg@50: 0.0278    
+Mon 07 Aug 2023 00:56:57 INFO test result: 
+ndcg@50: 0.0283    
+Mon 07 Aug 2023 00:57:24 INFO epoch 125 training [time: 27.14s, train loss: 931.9800]
+Mon 07 Aug 2023 00:58:49 INFO epoch 125 evaluating [time: 42.98s, valid_score: 0.027700]
+Mon 07 Aug 2023 00:58:49 INFO valid result: 
+ndcg@50: 0.0277    
+Mon 07 Aug 2023 00:58:49 INFO test result: 
+ndcg@50: 0.0283    
+Mon 07 Aug 2023 00:59:16 INFO epoch 126 training [time: 27.05s, train loss: 931.6983]
+Mon 07 Aug 2023 01:00:42 INFO epoch 126 evaluating [time: 43.13s, valid_score: 0.027800]
+Mon 07 Aug 2023 01:00:42 INFO valid result: 
+ndcg@50: 0.0278    
+Mon 07 Aug 2023 01:00:42 INFO test result: 
+ndcg@50: 0.0283    
+Mon 07 Aug 2023 01:01:09 INFO epoch 127 training [time: 26.88s, train loss: 932.0845]
+Mon 07 Aug 2023 01:02:35 INFO epoch 127 evaluating [time: 42.89s, valid_score: 0.027800]
+Mon 07 Aug 2023 01:02:35 INFO valid result: 
+ndcg@50: 0.0278    
+Mon 07 Aug 2023 01:02:35 INFO test result: 
+ndcg@50: 0.0284    
+Mon 07 Aug 2023 01:03:02 INFO epoch 128 training [time: 26.96s, train loss: 932.2259]
+Mon 07 Aug 2023 01:04:28 INFO epoch 128 evaluating [time: 42.83s, valid_score: 0.027700]
+Mon 07 Aug 2023 01:04:28 INFO valid result: 
+ndcg@50: 0.0277    
+Mon 07 Aug 2023 01:04:28 INFO test result: 
+ndcg@50: 0.0283    
+Mon 07 Aug 2023 01:04:55 INFO epoch 129 training [time: 27.04s, train loss: 932.2665]
+Mon 07 Aug 2023 01:06:21 INFO epoch 129 evaluating [time: 42.89s, valid_score: 0.027800]
+Mon 07 Aug 2023 01:06:21 INFO valid result: 
+ndcg@50: 0.0278    
+Mon 07 Aug 2023 01:06:21 INFO test result: 
+ndcg@50: 0.0284    
+Mon 07 Aug 2023 01:06:48 INFO epoch 130 training [time: 26.97s, train loss: 932.3406]
+Mon 07 Aug 2023 01:08:13 INFO epoch 130 evaluating [time: 43.06s, valid_score: 0.027800]
+Mon 07 Aug 2023 01:08:13 INFO valid result: 
+ndcg@50: 0.0278    
+Mon 07 Aug 2023 01:08:13 INFO test result: 
+ndcg@50: 0.0284    
+Mon 07 Aug 2023 01:08:40 INFO epoch 131 training [time: 27.05s, train loss: 932.5574]
+Mon 07 Aug 2023 01:10:06 INFO epoch 131 evaluating [time: 42.86s, valid_score: 0.027800]
+Mon 07 Aug 2023 01:10:06 INFO valid result: 
+ndcg@50: 0.0278    
+Mon 07 Aug 2023 01:10:06 INFO test result: 
+ndcg@50: 0.0283    
+Mon 07 Aug 2023 01:10:33 INFO epoch 132 training [time: 27.05s, train loss: 932.4065]
+Mon 07 Aug 2023 01:11:58 INFO epoch 132 evaluating [time: 42.90s, valid_score: 0.027800]
+Mon 07 Aug 2023 01:11:58 INFO valid result: 
+ndcg@50: 0.0278    
+Mon 07 Aug 2023 01:11:58 INFO test result: 
+ndcg@50: 0.0283    
+Mon 07 Aug 2023 01:12:25 INFO epoch 133 training [time: 27.02s, train loss: 932.6084]
+Mon 07 Aug 2023 01:13:51 INFO epoch 133 evaluating [time: 42.85s, valid_score: 0.027800]
+Mon 07 Aug 2023 01:13:51 INFO valid result: 
+ndcg@50: 0.0278    
+Mon 07 Aug 2023 01:13:51 INFO test result: 
+ndcg@50: 0.0283    
+Mon 07 Aug 2023 01:13:51 INFO +++++Finished training, best eval result in epoch 112
+Mon 07 Aug 2023 01:13:51 INFO save_best_val_model
+Mon 07 Aug 2023 01:13:53 INFO saving_per_param_model
+Mon 07 Aug 2023 01:13:55 INFO best valid result: ndcg@50: 0.0278    
+Mon 07 Aug 2023 01:13:55 INFO test result: ndcg@50: 0.0282    
+Mon 07 Aug 2023 01:13:55 INFO ████Current BEST████:
+Parameters: ['n_layers', 'reg_weight', 'dropout', 'seed']=(1, 0.1, 0.3, 999),
+Valid: ndcg@50: 0.0278    ,
+Test: ndcg@50: 0.0282    
+
+
+
+Mon 07 Aug 2023 01:13:55 INFO 
+============All Over=====================
+Mon 07 Aug 2023 01:13:55 INFO Parameters: ['n_layers', 'reg_weight', 'dropout', 'seed']=(1, 0.1, 0.3, 999),
+ best valid: ndcg@50: 0.0278    ,
+ best test: ndcg@50: 0.0282    
+Mon 07 Aug 2023 01:13:55 INFO 
+
+█████████████ BEST ████████████████
+Mon 07 Aug 2023 01:13:55 INFO 	Parameters: ['n_layers', 'reg_weight', 'dropout', 'seed']=(1, 0.1, 0.3, 999),
+Valid: ndcg@50: 0.0278    ,
+Test: ndcg@50: 0.0282    
+
+
