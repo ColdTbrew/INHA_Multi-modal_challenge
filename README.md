@@ -1,5 +1,8 @@
 # 멀티모달 추천 시스템 (Multi-modal Recommender System)
 
+- Avengers Team 3등 수상
+
+  
 ## Index
 - [Competition INFO](#competition-info)
 - [DATA](#data)
